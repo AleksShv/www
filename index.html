@@ -17,7 +17,7 @@
     
     <div class="bg-light content">
         <div class="list border-end border-2 border-dark">
-            <h3>Навигация</h3>
+            <h3 class="text-center">Навигация</h3>
             <hr>
             <ul id="navigation">
                 <li>
@@ -25,17 +25,17 @@
                 </li>
 
                 <li>
-                    <a href="sections/section1.html">Раздел 1</a>
-                    <ul>
+                    <a data-bs-toggle="collapse" href="#section1" aria-controls="section1" aria-expanded="false">Раздел 1</a>
+                    <ul class="collapse" id="section1">
                         <li><a href="sections/section1.1.html">Раздел 1.1</a></li>
-                        <li><a href="">Раздел 1.2</a></li>
+                        <li><a href="sections/section1.2.html">Раздел 1.2</a></li>
                         <li><a href="">Раздел 1.3</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="">Раздел 2</a>
-                    <ul>
+                    <a data-bs-toggle="collapse" href="#section2" aria-controls="section2" aria-expanded="false">Раздел 2</a>
+                    <ul class="collapse" id="section2">
                         <li><a href="">Раздел 2.1</a></li>
                         <li><a href="">Раздел 2.2</a></li>
                         <li><a href="">Раздел 2.3</a></li>
@@ -44,8 +44,8 @@
                 </li>
 
                 <li>
-                    <a href="">Раздел 3</a>
-                    <ul>
+                    <a data-bs-toggle="collapse" href="#section3" aria-controls="section3" aria-expanded="false">Раздел 3</a>
+                    <ul class="collapse" id="section3">
                         <li><a href="">Раздел 3.1</a></li>
                         <li><a href="">Раздел 3.2</a></li>
                     </ul>
@@ -70,7 +70,7 @@
                 e.preventDefault();
                 
                 let href = link[index].href;
-                if (href == document.baseURI)
+                if (href == document.baseURI || href.includes('#section'))
                     return;
 
                 let request = new XMLHttpRequest();
