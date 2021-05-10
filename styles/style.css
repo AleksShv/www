@@ -50,6 +50,10 @@ header > h4 {
     scrollbar-width: none;
 }
 
+.list > ul, li > ul {
+    padding: 0 10px;
+}
+
 article {
     margin: 0;
     padding: 0 2%;

@@ -62,22 +62,28 @@
     </footer>
 
     <script>
-        let link = document.getElementById('navigation').getElementsByTagName('a');
+        let startPage = 'sections/introduction.html';
+        let links = document.getElementById('navigation').getElementsByTagName('a');
         let contentBlock = document.getElementsByTagName('article')[0];
 
-        for (let index = 0; index < link.length; index++) {
-            link[index].onclick = function(e) {
+        load(startPage);
+
+        for (let index = 0; index < links.length; index++) {
+            links[index].onclick = function(e) {
                 e.preventDefault();
                 
-                let href = link[index].href;
+                let href = links[index].href;
                 if (href == document.baseURI || href.includes('#section'))
                     return;
+                load (href);
+            };
+        }
 
-                let request = new XMLHttpRequest();
-                request.open('get', href);
+        function load(link) {
+            let request = new XMLHttpRequest();
+                request.open('get', link);
                 request.onload = () => contentBlock.innerHTML = request.response;
                 request.send();
-            };
         }
     </script>
 
