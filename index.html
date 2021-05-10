@@ -70,15 +70,12 @@
                 e.preventDefault();
                 
                 let href = link[index].href;
-                if (href == /\W+/)
+                if (href == document.baseURI)
                     return;
 
                 let request = new XMLHttpRequest();
                 request.open('get', href);
-                request.onload = function() {
-                    console.log(request.response);
-                    contentBlock.innerHTML = request.response;
-                }
+                request.onload = () => contentBlock.innerHTML = request.response;
                 request.send();
             };
         }
