@@ -50,8 +50,27 @@ header > h4 {
     scrollbar-width: none;
 }
 
-.list > ul, li > ul {
-    padding: 0 10px;
+.chapter {
+        list-style: none;
+        margin: 10px 0;
+        font-size: large;
+}
+
+.chapter > a {
+    text-decoration: none;
+    color: #212529 !important;
+}
+
+.subchapters {
+    list-style: none;
+    font-size: medium;
+    padding: 0 24px;
+    font-style: italic;
+}
+
+.subchapters > li > a {
+    text-decoration: none;
+    color: #212529 !important;
 }
 
 article {
