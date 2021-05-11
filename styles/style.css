@@ -87,10 +87,10 @@ article {
     text-align: justify;
 }
 
-article > img, span {
+article > img {
     max-width: 100%;
-    width: 50%;
-    text-align: center;
+    width: 60%;
+    object-position: center;
 }
 
 article > h3, h4 {
@@ -98,6 +98,12 @@ article > h3, h4 {
     width: 100%;
     text-align: center;
 }
+
+article > span {
+    text-align: center;
+}
+
+/* Footer */
 
 footer {
     height: 25px;
