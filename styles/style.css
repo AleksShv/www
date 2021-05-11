@@ -87,19 +87,19 @@ article {
     text-align: justify;
 }
 
-article > img {
+article > .image {
     margin: auto;
     max-width: 100%;
     width: 60%;
 }
 
-article > h3, h4 {
-    font-weight: bold;
-    width: 100%;
+article > .image > p {
     text-align: center;
 }
 
-article > span {
+article > h3, h4 {
+    font-weight: bold;
+    width: 100%;
     text-align: center;
 }
 
