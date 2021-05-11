@@ -88,9 +88,9 @@ article {
 }
 
 article > img {
+    margin: auto;
     max-width: 100%;
     width: 60%;
-    object-position: center;
 }
 
 article > h3, h4 {
