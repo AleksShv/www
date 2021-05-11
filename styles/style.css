@@ -40,6 +40,8 @@ header > h4 {
     font-weight: nowrap;
 }
 
+/* Navigation */
+
 .list {
     margin: 0;
     padding: 0 1%;
@@ -73,6 +75,8 @@ header > h4 {
     color: #212529 !important;
 }
 
+/* Content */
+
 article {
     margin: 0;
     padding: 0 2%;
@@ -81,6 +85,12 @@ article {
     overflow-y: auto;
     text-indent: 1.5em;
     text-align: justify;
+}
+
+article > img, span {
+    max-width: 100%;
+    width: 50%;
+    text-align: center;
 }
 
 article > h3, h4 {
