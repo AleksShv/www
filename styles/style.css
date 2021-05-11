@@ -87,13 +87,13 @@ article {
     text-align: justify;
 }
 
-article > .image {
+article > figure {
     margin: auto;
     max-width: 100%;
     width: 60%;
 }
 
-article > .image > p {
+article > figure > figcaption {
     text-align: center;
 }
 
