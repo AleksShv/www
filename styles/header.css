@@ -1,0 +1,29 @@
+header {
+    display: flex;
+    font-weight: nowrap;
+    align-items: center;
+    font-display: column;
+    height: 80px;
+}
+
+header::before, header::after
+{
+    content: "";
+    border-bottom: solid 2px white;
+    width: 20%;
+}
+
+header > h4 {
+    margin: 0;
+    padding: 0 10px;
+    width: 100%;
+    text-align: center;
+}
+
+header > h4::after
+{
+    display: block;
+    content: " ";
+    width: 100%;
+    color: white;
+}

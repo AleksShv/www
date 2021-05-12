@@ -1,0 +1,29 @@
+article {
+    margin: 0;
+    padding: 0 2%;
+    width: 80%;
+    max-height: inherit;
+    overflow-y: auto;
+    text-indent: 1.5em;
+    text-align: justify;
+}
+
+article > figure {
+    margin: auto;
+    max-width: 100%;
+    width: 60%;
+}
+
+article > figure > img {
+    width: 100%;
+}
+
+article > figure > figcaption {
+    text-align: center;
+}
+
+article > h3, h4 {
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
