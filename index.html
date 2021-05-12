@@ -12,17 +12,17 @@
 </head>
 <body>
     <header class="fixed-top bg-dark bg-gradient text-white">
-        <!-- <img src="images/logo.png" alt="SFEDU"> -->
         <h4>Стандарт SCORM поддержки разработки ЭУК для сферы электронного обучения</h3>
     </header>
     
     <div class="bg-light content">
-        <div class="list border-end border-1 border-dark bg-light text-dark">
+        <div class="list border-end border-1 border-dark bg-light text-dark shadow">
             <h3 class="text-center">Навигация</h3>
             <hr>
+            
             <ul id="navigation">
                 <li class="chapter">
-                    <a href="sections/introduction.html">Введение</a>
+                    <a href="content/introduction.html">Введение</a>
                 </li>
 
                 <li  class="chapter">
@@ -30,8 +30,8 @@
                         Раздел1
                     </a>
                     <ul class="collapse subchapters" id="section1">
-                        <li><a href="sections/section1.1.html">Раздел 1.1</a></li>
-                        <li><a href="sections/section1.2.html">Раздел 1.2</a></li>
+                        <li><a href="content/section1.1.html">Раздел 1.1</a></li>
+                        <li><a href="content/section1.2.html">Раздел 1.2</a></li>
                         <li><a href="">Раздел 1.3</a></li>
                     </ul>
                 </li>
@@ -48,6 +48,14 @@
                     </ul>
                 </li>
             </ul>
+                
+            <div class="buttons">
+                <hr>
+                <div class="btn-group w-100" role="group">
+                    <button type="button" class="btn btn-outline-dark">Назад</button>
+                    <button type="button" class="btn btn-outline-dark">Далее</button>
+                </div>
+            </div>
         </div>
 
         <article>
@@ -58,50 +66,8 @@
         <p class="text-center">Данный ресурс разработан студентом группы КТбо3-4 Шевченко А. И. 2021г. г.Таганрог</p>
     </footer>
 
-    <script>
-        let startPage = 'sections/introduction.html';
-        let links = document.getElementById('navigation').getElementsByTagName('a');
-        let contentBlock = document.getElementsByTagName('article')[0];
-
-        load(startPage);
-
-        for (let index = 0; index < links.length; index++) {
-            links[index].onclick = function(e) {
-                e.preventDefault();
-                
-                let href = links[index].href;
-                if (href == document.baseURI || href.includes('#section'))
-                    return;
-                load (href);
-            };
-        }
-
-        function load(link) {
-            let request = new XMLHttpRequest();
-                request.open('get', link);
-                request.onload = () => contentBlock.innerHTML = request.response;
-                request.send();
-        }
-
-        let chapters = document.getElementsByClassName('chapter');
-        let states = {false: 'bi-plus-square', true: 'bi-dash-square'}
-
-        for (let i = 0; i < chapters.length; i++) {
-            let links = chapters[i].getElementsByClassName("bi");
-
-            for (let j = 0; j < links.length; j++)
-            {
-                links[j].onclick = function() {
-                    let state = links[j].getAttribute("aria-expanded");
-                    let prevState = state === "true" ? "false" : "true";
-                    console.log(prevState, state);
-                    links[j].classList.replace(states[prevState], states[state]);
-                }
-            }
-        }
-
-    </script>
-
+    <script src="scripts/load-handler.js"></script>
+    <script src="scripts/list-togle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 </body>
 </html>

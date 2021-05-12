@@ -7,20 +7,21 @@ body {
     overflow-y: hidden;
 }
 
+/* Header */
+
 header {
     display: flex;
-    font-display: row;
     font-weight: nowrap;
     align-items: center;
+    justify-content: flex-start;
     height: 80px;
 }
 
-header > img {
-    background-color: white;
-    width: 100px;
-    height: 100%;
-    margin: 0;
-    padding: 0 10px;
+header::before, header::after
+{
+    content: "";
+    border-bottom: solid 2px white;
+    width: 20%;
 }
 
 header > h4 {
@@ -28,6 +29,16 @@ header > h4 {
     padding: 0 10px;
     width: 100%;
     text-align: center;
+}
+
+
+
+header > h4::after
+{
+    display: block;
+    content: " ";
+    width: 100%;
+    color: white;
 }
 
 .content {
@@ -50,6 +61,23 @@ header > h4 {
     overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.list > h3 {
+    margin: 0 auto;
+}
+
+.list > .buttons {
+    width: 100%;
+    bottom: 0;
+    padding: 5px 0;
+    margin-top: auto;
+}
+
+.list > #navigation {
+    margin: 0;
 }
 
 .chapter {
