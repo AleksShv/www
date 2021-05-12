@@ -15,11 +15,12 @@ for (let index = 0; index < links.length; index++) {
     links[index].onclick = function(e) {
         e.preventDefault();
         
-        let href = links[index].href;
-        if (href == document.baseURI || href.includes('#section'))
+        let link = links[index].href;
+        if (link == document.baseURI || link.includes('#section'))
             return;
-        load (href);
-        currentPage = href;
+        load (link);
+        currentPage = link;
+        checkPagesBorder();
     };
 }
 
