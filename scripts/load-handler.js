@@ -24,6 +24,8 @@ prevButton.onclick = function() {
     flipPage(-1);
 }
 
+console.log(nextButton);
+
 function openPage(link) {
     load(link);
     //contentBlock.innerHTML = page;
@@ -32,19 +34,19 @@ function openPage(link) {
 
 function load(link) {
     let request = new XMLHttpRequest();
-        request.open('get', link, false);
+        request.open('get', link);
         request.onload = () => contentBlock.innerHTML = request.response;
         request.send();
 }
 
 function flipPage(direction)
 {
-    let link = links.forEach(link => {
-        if (link.href == currentPageLink)
-            return link;
-    })
+    let link;
 
-    console.log(link);
+    for (let i = 0; i < links.length; i++) {
+        if (links[i].href == currentPageLink)
+            link = links[i];
+    }
 
     let index = links.indexOf(link);
     let newPageLink = links[index + direction];
@@ -61,4 +63,8 @@ function getPagesLinks() {
             pagesLinks.push(allLinks[i]);
 
     return pagesLinks;
+}
+
+contentBlock.onload = function() {
+    alert("aaaaaaaaaaaaaaa");
 }
