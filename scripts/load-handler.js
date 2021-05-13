@@ -7,51 +7,41 @@ let contentBlock = document.getElementById("content");
 let nextButton = document.getElementById("next");
 let prevButton = document.getElementById("prev");
 
-openPage(startPageLink);
+let activeStyle = ["border", "border-dark", "rounded-pill", "bg-white"];
+
+loadPage(startPageLink);
 
 for (let i = 0; i < links.length; i++) {
     links[i].onclick = function(e) {
         e.preventDefault();
-        openPage(links[i].href);
+        loadPage(links[i].href);
     };
 }
 
-nextButton.onclick = function() {
-    flipPage(1);
-}
+nextButton.onclick = () => flipPage(1);
+prevButton.onclick = () => flipPage(-1);
 
-prevButton.onclick = function() {
-    flipPage(-1);
-}
-
-console.log(nextButton);
-
-function openPage(link) {
-    load(link);
-    //contentBlock.innerHTML = page;
-    currentPageLink = link;
-}
-
-function load(link) {
+function loadPage(link) {
     let request = new XMLHttpRequest();
         request.open('get', link);
-        request.onload = () => contentBlock.innerHTML = request.response;
+        request.onload = function() { 
+            contentBlock.innerHTML = request.response;
+            changebuttonState();
+            removeActionMark(currentPageLink);
+            currentPageLink = link;
+            setActionMark(currentPageLink);
+        }
         request.send();
 }
 
 function flipPage(direction)
 {
-    let link;
-
-    for (let i = 0; i < links.length; i++) {
-        if (links[i].href == currentPageLink)
-            link = links[i];
-    }
+    let link = getLinkTag(currentPageLink);
 
     let index = links.indexOf(link);
     let newPageLink = links[index + direction];
 
-    openPage(newPageLink.href);
+    loadPage(newPageLink.href);
 }
 
 function getPagesLinks() {
@@ -65,6 +55,39 @@ function getPagesLinks() {
     return pagesLinks;
 }
 
-contentBlock.onload = function() {
-    alert("aaaaaaaaaaaaaaa");
+function changebuttonState() {
+    if (currentPageLink == links[0].href)
+        prevButton.disabled = true;
+    else
+        prevButton.disabled = false;
+
+    if (currentPageLink == links[links.length - 1].href)
+        nextButton.disabled = true;
+    else
+        nextButton.disabled = false;
+}
+
+function setActionMark(link) {
+    let tag = getLinkTag(link);
+
+    for (let i = 0; i < activeStyle.length; i++)
+    {
+        tag.classList.add(activeStyle[i]);
+    }
+}
+
+function removeActionMark(link) {
+    let tag = getLinkTag(link);
+
+    for (let i = 0; i < activeStyle.length; i++)
+    {
+        tag.classList.remove(activeStyle[i]);
+    }
+}
+
+function getLinkTag(link) {
+    for (let i = 0; i < links.length; i++) {
+        if (links[i].href == link)
+            return links[i];
+    }
 }
