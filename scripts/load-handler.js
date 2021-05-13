@@ -27,9 +27,13 @@ function loadPage(link) {
         request.onload = function() { 
             contentBlock.innerHTML = request.response;
             removeActionMark(currentPageLink);
+            let chapter = getLinkTag(currentPageLink).parentElement.parentElement.parentElement;
             currentPageLink = link;
             setActionMark(currentPageLink);
+            makeAction("true", chapter);
             changeButtonState();
+
+
         }
         request.send();
 }
@@ -68,7 +72,6 @@ function changeButtonState() {
 
 function setActionMark(link) {
     let tag = getLinkTag(link);
-    console.log(tag);
     tag.parentElement.classList.add(activeStyle);
 }
 

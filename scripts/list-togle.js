@@ -11,12 +11,16 @@ for (let i = 0; i < chapters.length; i++) {
             let prevState = state === "true" ? "false" : "true";
             links[j].classList.replace(states[prevState], states[state]);
 
-            if (prevState == "true" && checkAction(chapters[i]))
-                chapters[i].classList.add(activeStyle);
-            else
-                chapters[i].classList.remove(activeStyle);
+            makeAction(prevState, chapters[i])
         }
     }
+}
+
+function makeAction(state, chapter) {
+    if (state == "true" && checkAction(chapter))
+        chapter.classList.add(activeStyle);
+    else
+        chapter.classList.remove(activeStyle);
 }
 
 function checkAction(chapter) {
