@@ -1,6 +1,6 @@
 let links = getPagesLinks();
 let startPageLink = links[0];
-let currentPageLink = startPageLink;
+let currentPageLink = document.createElement("a");
 
 let contentBlock = document.getElementById("content");
 
@@ -9,7 +9,8 @@ let prevButton = document.getElementById("prev");
 
 let activeStyle = "border border-dark rounded-pill bg-white";
 
-openPage(startPageLink);
+currentPageLink.href = startPageLink.href;
+openPage(startPageLink.href);
 
 for (let i = 0; i < links.length; i++) {
     links[i].onclick = function(e) {
