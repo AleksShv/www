@@ -30,7 +30,6 @@ function loadPage(link) {
             currentPageLink = link;
             setActionMark(currentPageLink);
             changeButtonState();
-            
         }
         request.send();
 }
@@ -69,6 +68,7 @@ function changeButtonState() {
 
 function setActionMark(link) {
     let tag = getLinkTag(link);
+    console.log(tag);
     tag.parentElement.classList.add(activeStyle[i]);
 }
 
