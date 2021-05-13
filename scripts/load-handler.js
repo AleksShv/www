@@ -1,16 +1,13 @@
 let links = getPagesLinks();
-let startPageLink = links[0];
-let currentPageLink = document.createElement("a");
+let startPageLink = links[0].href;
+let currentPageLink = startPageLink;
 
 let contentBlock = document.getElementById("content");
 
 let nextButton = document.getElementById("next");
 let prevButton = document.getElementById("prev");
 
-let activeStyle = "border border-dark rounded-pill bg-white";
-
-currentPageLink.href = startPageLink.href;
-openPage(startPageLink.href);
+openPage(startPageLink);
 
 for (let i = 0; i < links.length; i++) {
     links[i].onclick = function(e) {
@@ -29,20 +26,26 @@ prevButton.onclick = function() {
 
 function openPage(link) {
     let page = load(link);
+    console.log(page);
     contentBlock.innerHTML = page;
-    currentPageLink.href = link;
+    currentPageLink = link;
 }
 
 function load(link) {
     let request = new XMLHttpRequest();
         request.open('get', link);
-        request.onload = () => {console.log("hui"); return request.response };
+        request.onload = () => request.response;
         request.send();
 }
 
 function flipPage(direction)
 {
-    let index = links.indexOf(currentPageLink);
+    let link = links.forEach(link => {
+        if (link.href == currentPageLink)
+            return link;
+    })
+
+    let index = links.indexOf(link);
     let newPageLink = links[index + direction];
 
     openPage(newPageLink.href);
