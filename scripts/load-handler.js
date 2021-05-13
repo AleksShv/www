@@ -7,7 +7,7 @@ let contentBlock = document.getElementById("content");
 let nextButton = document.getElementById("next");
 let prevButton = document.getElementById("prev");
 
-let activeStyle = ["border-start-0", "border-end-0", "border-dark", "bg-white"];
+let activeStyle = ["border-bottom", "border-2", "border-dark"];
 
 loadPage(startPageLink);
 
