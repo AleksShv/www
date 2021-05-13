@@ -7,7 +7,7 @@ let contentBlock = document.getElementById("content");
 let nextButton = document.getElementById("next");
 let prevButton = document.getElementById("prev");
 
-let activeStyle = ["border-bottom", "border-dark", "rounded", "bg-white"];
+let activeStyle = ["border-start-0", "border-end-0", "border-dark", "bg-white"];
 
 loadPage(startPageLink);
 
@@ -26,10 +26,10 @@ function loadPage(link) {
         request.open('get', link);
         request.onload = function() { 
             contentBlock.innerHTML = request.response;
-            changebuttonState();
             removeActionMark(currentPageLink);
             currentPageLink = link;
             setActionMark(currentPageLink);
+            changeButtonState();
         }
         request.send();
 }
@@ -37,7 +37,6 @@ function loadPage(link) {
 function flipPage(direction)
 {
     let link = getLinkTag(currentPageLink);
-
     let index = links.indexOf(link);
     let newPageLink = links[index + direction];
 
@@ -55,7 +54,7 @@ function getPagesLinks() {
     return pagesLinks;
 }
 
-function changebuttonState() {
+function changeButtonState() {
     if (currentPageLink == links[0].href)
         prevButton.disabled = true;
     else
