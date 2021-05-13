@@ -7,7 +7,7 @@ let contentBlock = document.getElementById("content");
 let nextButton = document.getElementById("next");
 let prevButton = document.getElementById("prev");
 
-let activeStyle = ["list-group-item-dark"];
+let activeStyle = "list-group-item-dark";
 
 loadPage(startPageLink);
 
@@ -30,6 +30,7 @@ function loadPage(link) {
             currentPageLink = link;
             setActionMark(currentPageLink);
             changeButtonState();
+            
         }
         request.send();
 }
@@ -68,20 +69,12 @@ function changeButtonState() {
 
 function setActionMark(link) {
     let tag = getLinkTag(link);
-
-    for (let i = 0; i < activeStyle.length; i++)
-    {
-        tag.parentElement.classList.add(activeStyle[i]);
-    }
+    tag.parentElement.classList.add(activeStyle[i]);
 }
 
 function removeActionMark(link) {
     let tag = getLinkTag(link);
-
-    for (let i = 0; i < activeStyle.length; i++)
-    {
-        tag.parentElement.classList.remove(activeStyle[i]);
-    }
+    tag.parentElement.classList.remove(activeStyle);
 }
 
 function getLinkTag(link) {

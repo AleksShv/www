@@ -16,3 +16,7 @@ body {
     font-display: row;
     font-weight: nowrap;
 }
+
+hr {
+    min-height: 1px;
+}
