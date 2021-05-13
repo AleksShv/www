@@ -71,7 +71,7 @@ function setActionMark(link) {
 
     for (let i = 0; i < activeStyle.length; i++)
     {
-        tag.classList.add(activeStyle[i]);
+        tag.parentElement.classList.add(activeStyle[i]);
     }
 }
 
@@ -80,7 +80,7 @@ function removeActionMark(link) {
 
     for (let i = 0; i < activeStyle.length; i++)
     {
-        tag.classList.remove(activeStyle[i]);
+        tag.parentElement.classList.remove(activeStyle[i]);
     }
 }
 
