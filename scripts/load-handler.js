@@ -26,9 +26,11 @@ function loadPage(link) {
         request.open('get', link);
         request.onload = function() { 
             contentBlock.innerHTML = request.response;
-            removeActionMark(currentPageLink);
             let chapter = getLinkTag(currentPageLink).parentElement.parentElement.parentElement;
+            removeActionMark(currentPageLink);
+            makeAction("true", chapter);
             currentPageLink = link;
+            chapter = getLinkTag(currentPageLink).parentElement.parentElement.parentElement;
             setActionMark(currentPageLink);
             makeAction("true", chapter);
             changeButtonState();
