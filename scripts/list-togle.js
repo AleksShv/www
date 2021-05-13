@@ -10,12 +10,14 @@ for (let i = 0; i < chapters.length; i++) {
             let state = links[j].getAttribute("aria-expanded");
             let prevState = state === "true" ? "false" : "true";
             links[j].classList.replace(states[prevState], states[state]);
+
+            makeAction(state, chapters[i])
         }
     }
 }
 
 function makeAction(state, chapter) {
-    if (state == "true" && checkAction(chapter))
+    if (state != "true" && checkAction(chapter))
         chapter.classList.add(activeStyle);
     else
         chapter.classList.remove(activeStyle);
