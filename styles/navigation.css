@@ -3,9 +3,12 @@
     padding: 0 1%;
     width: 20%;
     max-height: inherit;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
+}
+
+#navigation {
+    overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
