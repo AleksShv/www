@@ -1,74 +1,61 @@
-let pages = getPages();
-let startPage = pages[0];
-let currentPage = startPage;
+let links = getPages();
+let startPageLinkLink = links[0];
+let currentPageLinkLink = startPageLink;
 
-let links = document.getElementById('navigation').getElementsByTagName('a');
-let contentBlock = document.getElementsByTagName('article')[0];
+let contentBlock = document.getElementById("content");
 
 let nextButton = document.getElementById("next");
 let prevButton = document.getElementById("prev");
 
-load(startPage);
-checkPagesBorder();
+let activeStyle = "border border-dark rounded-pill bg-white";
+
+openPage(startPageLink);
 
 for (let index = 0; index < links.length; index++) {
     links[index].onclick = function(e) {
         e.preventDefault();
-        
-        let link = links[index].href;
-        if (link == document.baseURI || link.includes('#section'))
-            return;
-        load (link);
-        currentPage = link;
-        checkPagesBorder();
+        openPage(links[index].href);
+
     };
 }
 
 nextButton.onclick = function() {
     flipPage(1);
-    checkPagesBorder();
 }
 prevButton.onclick = function() {
     flipPage(-1);
-    checkPagesBorder();
 }
 
-function flipPage(direction)
-{
-    let currentPageIndex = pages.indexOf(currentPage);
-    let newPage = pages[currentPageIndex + direction];
-
-    currentPage = newPage;
-    load(currentPage);
-}
-
-function checkPagesBorder()
-{
-    if (currentPage == pages[0])
-        prevButton.disabled = true;
-    else
-        prevButton.disabled = false;
-
-    if (currentPage == pages[pages.length - 1])
-        nextButton.disabled = true;
-    else
-        nextButton.disabled = false;
+function openPage(link) {
+    let HTMLpage = load(link);
+    contentBlock.innerHTML = HTMLpage;
+    currentPageLink = link;
 }
 
 function load(link) {
     let request = new XMLHttpRequest();
         request.open('get', link);
-        request.onload = () => contentBlock.innerHTML = request.response;
+        request.onload = () => request.response;
         request.send();
 }
 
-function getPages() {
-    let links = document.getElementById('navigation').getElementsByTagName('a');
-    let pages = [];
+function flipPage(direction)
+{
+    let index = links.indexOf(currentPageLink);
+    let newPageLink = links[index + direction];
 
-    for (let i = 0; i < links.length; i++)
-        if (links[i].href.includes('content/'))
-            pages.push(links[i].href);
-
-    return pages;
+    openPage(newPageLink);
 }
+
+function getPagesLinks() {
+    let allLinks = document.getElementById('navigation').getElementsByTagName('a');
+    let pagesLinks = [];
+
+    for (let i = 0; i < allLinks.length; i++)
+        if (allLinks[i].href.includes('content/'))
+            pages.push(allLinks[i].href);
+
+    return pagesLinks;
+}
+
+contentBlock.onload = () => alert("aaaa");
