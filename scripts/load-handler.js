@@ -1,6 +1,6 @@
-let links = getPages();
-let startPageLinkLink = links[0];
-let currentPageLinkLink = startPageLink;
+let links = getPagesLinks();
+let startPageLink = links[0];
+let currentPageLink = startPageLink;
 
 let contentBlock = document.getElementById("content");
 
@@ -11,11 +11,10 @@ let activeStyle = "border border-dark rounded-pill bg-white";
 
 openPage(startPageLink);
 
-for (let index = 0; index < links.length; index++) {
-    links[index].onclick = function(e) {
+for (let i = 0; i < links.length; i++) {
+    links[i].onclick = function(e) {
         e.preventDefault();
-        openPage(links[index].href);
-
+        openPage(links[i]);
     };
 }
 
@@ -27,8 +26,8 @@ prevButton.onclick = function() {
 }
 
 function openPage(link) {
-    let HTMLpage = load(link);
-    contentBlock.innerHTML = HTMLpage;
+    let page = load(link);
+    contentBlock.innerHTML = page;
     currentPageLink = link;
 }
 
@@ -53,7 +52,7 @@ function getPagesLinks() {
 
     for (let i = 0; i < allLinks.length; i++)
         if (allLinks[i].href.includes('content/'))
-            pages.push(allLinks[i].href);
+            pagesLinks.push(allLinks[i]);
 
     return pagesLinks;
 }
