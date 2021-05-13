@@ -32,11 +32,9 @@ function openPage(link) {
 
 function load(link) {
     let request = new XMLHttpRequest();
-        request.open('get', link);
+        request.open('get', link, false);
         request.send();
-        request.onload = function() {
-            return request.response;
-        }
+        request.onload = () => request.response;
 }
 
 function flipPage(direction)
