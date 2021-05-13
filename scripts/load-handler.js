@@ -33,8 +33,8 @@ function openPage(link) {
 function load(link) {
     let request = new XMLHttpRequest();
         request.open('get', link, false);
-        request.send();
         request.onload = () => contentBlock.innerHTML = request.response;
+        request.send();
 }
 
 function flipPage(direction)
@@ -43,6 +43,8 @@ function flipPage(direction)
         if (link.href == currentPageLink)
             return link;
     })
+
+    console.log(link);
 
     let index = links.indexOf(link);
     let newPageLink = links[index + direction];
