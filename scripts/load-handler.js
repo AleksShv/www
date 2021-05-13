@@ -14,13 +14,14 @@ openPage(startPageLink);
 for (let i = 0; i < links.length; i++) {
     links[i].onclick = function(e) {
         e.preventDefault();
-        openPage(links[i]);
+        openPage(links[i].href);
     };
 }
 
 nextButton.onclick = function() {
     flipPage(1);
 }
+
 prevButton.onclick = function() {
     flipPage(-1);
 }
@@ -28,13 +29,13 @@ prevButton.onclick = function() {
 function openPage(link) {
     let page = load(link);
     contentBlock.innerHTML = page;
-    currentPageLink = link;
+    currentPageLink.href = link;
 }
 
 function load(link) {
     let request = new XMLHttpRequest();
         request.open('get', link);
-        request.onload = () => request.response;
+        request.onload = () => {console.log("hui"); return request.response };
         request.send();
 }
 
@@ -43,7 +44,7 @@ function flipPage(direction)
     let index = links.indexOf(currentPageLink);
     let newPageLink = links[index + direction];
 
-    openPage(newPageLink);
+    openPage(newPageLink.href);
 }
 
 function getPagesLinks() {
@@ -56,5 +57,3 @@ function getPagesLinks() {
 
     return pagesLinks;
 }
-
-contentBlock.onload = () => alert("aaaa");
