@@ -69,7 +69,7 @@ function changeButtonState() {
 function setActionMark(link) {
     let tag = getLinkTag(link);
     console.log(tag);
-    tag.parentElement.classList.add(activeStyle[i]);
+    tag.parentElement.classList.add(activeStyle);
 }
 
 function removeActionMark(link) {
