@@ -26,16 +26,12 @@ function loadPage(link) {
         request.open('get', link);
         request.onload = function() { 
             contentBlock.innerHTML = request.response;
-            let chapter = getLinkTag(currentPageLink).parentElement.parentElement.parentElement;
             removeActionMark(currentPageLink);
-            makeAction("true", chapter);
+            markChapter(currentPageLink);
             currentPageLink = link;
-            chapter = getLinkTag(currentPageLink).parentElement.parentElement.parentElement;
             setActionMark(currentPageLink);
-            makeAction("true", chapter);
+            markChapter(currentPageLink);
             changeButtonState();
-
-
         }
         request.send();
 }
@@ -87,4 +83,10 @@ function getLinkTag(link) {
         if (links[i].href == link)
             return links[i];
     }
+}
+
+function markChapter(link) {
+    let chapter = getLinkTag(link).parentElement.parentElement.parentElement;
+    let state = chapter.getElementsByClassName("bi")[0].getAttribute("aria-expanded");        
+    makeAction(state, chapter);
 }
