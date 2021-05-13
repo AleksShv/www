@@ -26,7 +26,6 @@ prevButton.onclick = function() {
 
 function openPage(link) {
     let page = load(link);
-    console.log(page);
     contentBlock.innerHTML = page;
     currentPageLink = link;
 }
@@ -34,8 +33,10 @@ function openPage(link) {
 function load(link) {
     let request = new XMLHttpRequest();
         request.open('get', link);
-        request.onload = () => request.response;
         request.send();
+        request.onload = function() {
+            return request.response;
+        }
 }
 
 function flipPage(direction)
