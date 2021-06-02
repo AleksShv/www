@@ -8,6 +8,16 @@ article {
     text-align: justify;
 }
 
+article > ul
+{
+    margin-left: 1.5em;
+}
+
+article > ul > li
+{
+    text-indent: 0;
+}
+
 article > figure {
     margin: auto;
     max-width: 100%;
