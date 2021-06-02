@@ -14,12 +14,12 @@ article > p
     margin-top: 1rem;
 }
 
-article > ul
+article > ul, ol
 {
     margin-left: 1.5em;
 }
 
-article > ul > li
+article > ul, ol > li
 {
     text-indent: 0;
 }
