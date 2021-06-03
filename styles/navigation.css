@@ -10,6 +10,7 @@
 #navigation {
     overflow-y: auto;
     -ms-overflow-style: none;
+    -webkit-overflow-style: none;
     scrollbar-width: none;
 }
 
