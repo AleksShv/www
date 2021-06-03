@@ -4,10 +4,9 @@
     margin: 1rem 1rem;
     width: 4.5rem;
     height: 4.5rem;
-    display: flex;
     justify-content: center;
     align-items: center;
-    /* display: none; */
+    display: none; 
 }
 
 .to-top > a {
@@ -24,6 +23,13 @@
 .btn-outline-dark:hover
 {
     opacity: 100%;
+    box-shadow: 0px 3px 8px grey;
+}
+
+.btn-outline-dark:active
+{
+    margin-top: 5px;
+    box-shadow: none;
 }
 
 .to-top-show {
