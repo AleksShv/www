@@ -20,3 +20,26 @@ body {
 hr {
     min-height: 1px;
 }
+
+.to-top {
+    position: fixed;
+    right: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    display: none;
+}
+
+.to-top > a {
+    margin: 10%;
+    padding: 0;
+    width: 80%;
+    height: 80%;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-top-show {
+    display: block;
+}
