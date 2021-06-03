@@ -1,80 +1,86 @@
-.start .main-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border: 2px solid black;
-    /* padding: 20px 45px; */
-}
-
-* {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
-div {
-    display: block;
-}
-
 .start {
     overflow: hidden;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     min-width: 100vw;
     height: 100vh;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     position: fixed;
     top: 0px;
     right: 0px;
     background-color: #fff;
     padding: 40px;
-    z-index: 100;
+    z-index: 10000;
 }
 
-.main {
-    display: -webkit-box;
-    display: -ms-flexbox;
+.start .main-container {
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    width: 100%;
-    min-height: 100vh;
-}
-
-body {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    width: auto;
-    background-color: #c7c7c7;
-    padding: 0% 10% 0px 10%;
+    border: 2px solid black;
+    padding: 20px 45px;
+    max-height: 70%;
+}
+.start .min-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.start .min-text p {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+}
+.start .kaf-text {
+    padding-bottom: 80px;
+}
+.start .kaf-text p {
+    font-size: 16px;
+}
+.start .tem-text {
+    padding-bottom: 20px;
+}
+.start .tem-text p {
+    text-align: center;
+    font-size: 22px;
+}
+.start .block {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    width: 100%;
+}
+.start .block .button-container {
+    top: 40px;
+    left: 39%;
+    position: absolute;
+}
+.start .block .button-container a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    padding: 10px 70px;
+    background-color: #f8f8f8;
+    border: 1px solid #aaa;
+    box-shadow: inset 1px 0px 29px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.start .block .button-container a:hover {
+    background-color: #a8a8a8;
+}
+.start .block .persons-container .person {
+    padding-bottom: 15px;
+}
+.start .block .persons-container .person p {
+    text-align: right;
+    font-size: 16px;
+}
+.start .time-text p {
+    text-transform: capitalize;
+    font-size: 16px;
 }

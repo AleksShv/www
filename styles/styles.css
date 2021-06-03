@@ -5,6 +5,7 @@
 
 body {
     overflow-y: hidden;
+    min-height: 100vh;
 }
 
 .wraper {
