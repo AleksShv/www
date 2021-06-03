@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стандарт SCORM поддержки разработки ЭУК для сферы электронного обучения</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/content.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="styles/scroll-top.css">
+</head>
+<body>
+    <header class="fixed-top bg-dark bg-gradient text-white">
+        <h4>Стандарт SCORM поддержки разработки ЭУК для сферы электронного обучения</h4>
+    </header>
+    
+    <div class="bg-light wraper">
+        <div class="list border-end border-1 border-dark bg-light text-dark shadow">
+            <h3 class="text-center">Навигация</h3>
+            <hr>
+            
+            <ul id="navigation" class="list-group">
+                <li class="chapter list-group-item list-group-item-action">
+                    <a href="content/introduction.html">Введение</a>
+                </li>
+
+                <li  class="chapter list-group-item">
+                    <a data-bs-toggle="collapse" href="#section1" aria-controls="section1" aria-expanded="false" class="bi bi-plus-square">
+                        Введение в SCORM
+                    </a>
+                    <ul class="collapse subchapters list-group-flush" id="section1">
+                        <li class="list-group-item list-group-item-action"><a href="content/scorm-introduction/what-is-scorm.html">Что такое SCORM?</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="content/scorm-introduction/main-idea.html">Главная идея SCORM</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="content/scorm-introduction/history.html">История SCORM</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="content/scorm-introduction/versions.html">Версии SCORM</a></li>
+                    </ul>
+                </li>
+
+                <li  class="chapter list-group-item">
+                    <a data-bs-toggle="collapse" href="#section2" aria-controls="section2" aria-expanded="false" class="bi bi-plus-square">
+                        Общая информация
+                    </a>
+                    <ul class="collapse subchapters list-group-flush" id="section2">
+                        <li class="list-group-item list-group-item-action"><a href="content/general-information/advantages-and-disadvantages.html">Преимущества и недостатки</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="content/general-information/compatibility.html">SCORM-совместимые системы</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="content/general-information/software.html">ПО для создания контента</a></li>
+                    </ul>
+                </li>
+
+                <li  class="chapter list-group-item">
+                    <a data-bs-toggle="collapse" href="#section3" aria-controls="section3" aria-expanded="false" class="bi bi-plus-square">
+                        Организация SCORM
+                    </a>
+                    <ul class="collapse subchapters list-group-flush" id="section3">
+                        <li class="list-group-item list-group-item-action"><a href="content/scorm-organizations/presentation-scheme.html">Схема представления</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="content/scorm-organizations/CAM.html">Content Aggregation Model</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="content/scorm-organizations/RTE.html">Run-Time Environment</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="content/scorm-organizations/SN.html">Sequencing and Navigation</a></li>
+                    </ul>
+                </li>
+
+                <li  class="chapter list-group-item">
+                    <a data-bs-toggle="collapse" href="#section4" aria-controls="section4" aria-expanded="false" class="bi bi-plus-square">
+                        Разработка курсов
+                    </a>
+                    <ul class="collapse subchapters list-group-flush" id="section4">
+                        <li class="list-group-item list-group-item-action"><a href="content/developing/developing.html">Разработка дистанционных курсов</a></li>
+                    </ul>
+                </li>
+
+                <li class="chapter list-group-item list-group-item-action">
+                    <a href="content/conclusion.html">Заключение</a>
+                </li>
+
+                <li class="chapter list-group-item list-group-item-action">
+                    <a href="content/links.html">Список использованных источников</a>
+                </li>
+            </ul>
+                
+            <div class="buttons">
+                <hr>
+                <div class="btn-group w-100" role="group">
+                    <input type="button" class="btn btn-outline-dark" id="prev" value="Назад">
+                    <input type="button" class="btn btn-outline-dark" id="next" value="Далее">
+                </div>
+            </div>
+        </div>
+
+        <article id="content">
+        </article>
+
+        <div class="to-top">
+            <a class="btn btn-outline-dark rounded-circle border-2" id="to-top" role="button">
+                <i class="bi bi-chevron-up"></i>
+            </a>
+        </div>
+        
+    </div>
+
+    <footer class="fixed-bottom bg-secondary">
+        <p class="text-center">Данный ресурс разработан студентом группы КТбо3-4 Шевченко А. И. 2021г. г.Таганрог</p>
+    </footer>
+
+    <script src="scripts/title.js"></script>
+    <script src="scripts/load-handler.js"></script>
+    <script src="scripts/list-togle.js"></script>
+    <script src="scripts/scroll-top.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+</body>
+</html>
