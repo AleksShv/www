@@ -34,7 +34,7 @@
 
 .chapter {
         margin: 2.5px 0;
-        font-size: large;
+        font-size: medium;
 }
 
 .chapter > a {
@@ -47,7 +47,7 @@
 
 .subchapters {
     list-style: none;
-    font-size: medium;
+    font-size:small;
     padding: 0;
     /* font-style: italic; */
 }
