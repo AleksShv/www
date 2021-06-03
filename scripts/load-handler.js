@@ -26,19 +26,47 @@ function loadPage(link) {
         request.open('get', link);
         request.onload = function() { 
             contentBlock.innerHTML = request.response;
+
             removeActionMark(currentPageLink);
             markChapter(currentPageLink);
+            let prevLink = findLinkTag(currentPageLink)
+            let prevChapter = findChapterForLink(prevLink);
+
             currentPageLink = link;
+            
             setActionMark(currentPageLink);
             markChapter(currentPageLink);
+            let currentLink = findLinkTag(currentPageLink)
+            let currentChapter = findChapterForLink(currentLink);
+
+            if (!currentChapter.isEqualNode(prevChapter))
+            {
+                let prevCollapse = prevChapter.getElementsByClassName("bi")[0];
+                let currentCollapse = currentChapter.getElementsByClassName("bi")[0];
+
+                toggle(prevCollapse, "true");
+                toggle(currentCollapse, "false");
+            }
+
             changeButtonState();
         }
         request.send();
 }
 
+function toggle(collapse, state)
+{
+    if (collapse)
+    {
+        if (collapse.getAttribute("aria-expanded") == state)
+        {
+            collapse.click();
+        }
+    }
+}
+
 function flipPage(direction)
 {
-    let link = getLinkTag(currentPageLink);
+    let link = findLinkTag(currentPageLink);
     let index = links.indexOf(link);
     let newPageLink = links[index + direction];
 
@@ -69,16 +97,16 @@ function changeButtonState() {
 }
 
 function setActionMark(link) {
-    let tag = getLinkTag(link);
+    let tag = findLinkTag(link);
     tag.parentElement.classList.add(activeStyle);
 }
 
 function removeActionMark(link) {
-    let tag = getLinkTag(link);
+    let tag = findLinkTag(link);
     tag.parentElement.classList.remove(activeStyle);
 }
 
-function getLinkTag(link) {
+function findLinkTag(link) {
     for (let i = 0; i < links.length; i++) {
         if (links[i].href == link)
             return links[i];
@@ -86,7 +114,12 @@ function getLinkTag(link) {
 }
 
 function markChapter(link) {
-    let chapter = getLinkTag(link).parentElement.parentElement.parentElement;
-    let state = chapter.getElementsByClassName("bi")[0].getAttribute("aria-expanded");        
-    makeAction(state, chapter);
+    let linkTag = findLinkTag(link);
+    let chapter = findChapterForLink(linkTag);
+
+    if (chapter.childElementCount > 1)
+    {
+        let state = chapter.getElementsByClassName("bi")[0].getAttribute("aria-expanded");        
+        makeAction(state, chapter);
+    }
 }
