@@ -26,6 +26,10 @@ function loadPage(link) {
         request.open('get', link);
         request.onload = function() { 
             contentBlock.innerHTML = request.response;
+            article.scrollTo({
+                top: 0,
+                behaviour: "instant"
+            });
 
             removeActionMark(currentPageLink);
             markChapter(currentPageLink);
