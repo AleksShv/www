@@ -8,6 +8,11 @@ article {
     text-align: justify;
 }
 
+article {
+    scrollbar-width: thin;
+    scrollbar-color: #212529 #f8f9fa;
+}
+
 article > p
 {
     margin: 0;

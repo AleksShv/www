@@ -33,8 +33,9 @@
 }
 
 .chapter {
-        margin: 2.5px 0;
-        font-size: medium;
+    margin: 2.5px 0;
+    font-size: medium;
+    border-radius: .25rem;
 }
 
 .chapter > a {
@@ -58,7 +59,11 @@
     height: 100%;
 }
 
-.list-group-item + .list-group-item
-{
-    border-radius: .25rem;
+.btn-outline-dark:active {
+    margin-top: 0px;
+    box-shadow: none;
+} 
+
+#navigation > .list-group-item + .list-group-item {
+    border-top-width: 1px;
 }

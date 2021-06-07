@@ -20,13 +20,13 @@
     align-items: inherit;
 }
 
-.btn-outline-dark:hover
+.to-top > .btn-outline-dark:hover
 {
     opacity: 100%;
     box-shadow: 0px 3px 8px grey;
 }
 
-.btn-outline-dark:active
+.to-top > .btn-outline-dark:active
 {
     margin-top: 5px;
     box-shadow: none;

@@ -10,9 +10,9 @@ body {
 
 .wraper {
     position: relative;
-    top: 60px;
-    height: calc(100vh - 85px);
-    max-height: calc(100vh - 85px);
+    top: 50px;
+    height: calc(100vh - 75px);
+    max-height: calc(100vh - 75px);
     display: flex;
     font-display: row;
     font-weight: nowrap;
