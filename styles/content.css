@@ -1,7 +1,6 @@
 article {
     margin: 0;
-    padding: 0 4.5%;
-    padding-top: 1%;
+    padding: 1% 4.5%;
     width: 80%;
     max-height: inherit;
     overflow-y: auto;
