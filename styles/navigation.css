@@ -1,20 +1,27 @@
 .list {
     margin: 0;
-    padding: 0 1%;
+    padding-top: 0.5%;
     width: 20%;
     max-height: inherit;
     display: flex;
     flex-direction: column;
 }
 
-#navigation {
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+.list > .title {
+    width: 100%;
+    margin: 0;
+    padding: 0 5%;
 }
 
-#navigation::-webkit-scrollbar {
-    width: 0;
+#navigation {
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #212529 #f8f9fa;
+    padding: 0 5%;
+}
+
+#navigation:hover {
+    overflow-y: auto;
 }
 
 .list > h3 {
@@ -24,7 +31,7 @@
 .list > .buttons {
     width: 100%;
     bottom: 0;
-    padding: 5px 0;
+    padding: 5px 5%;
     margin-top: auto;
 }
 

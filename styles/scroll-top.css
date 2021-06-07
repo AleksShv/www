@@ -1,9 +1,10 @@
 .to-top {
     position: fixed;
     right: 0;
-    margin: 1rem 1rem;
-    width: 4rem;
-    height: 4rem;
+    bottom: 0;
+    margin: 1.5rem 0.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
     justify-content: center;
     align-items: center;
     display: none; 
@@ -12,7 +13,7 @@
 .to-top > a {
     width: 80%;
     height: 80%;
-    font-size: 3rem;
+    font-size: 2.5rem;
     opacity: 60%;
     padding-bottom: 20%;
     display: inherit;
